@@ -10,6 +10,7 @@ public func solution(_ A : inout [Int], _ K : Int) -> [Int] {
   }
   
   return A
+  
 }
 
 var arr = [3, 8, 9, 7, 6]
