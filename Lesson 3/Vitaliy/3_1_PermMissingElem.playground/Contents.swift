@@ -1,22 +1,12 @@
 import UIKit
 
 public func solution(_ A : inout [Int]) -> Int {
-    A.sort()
-    guard !A.isEmpty, A.first == 1 else { return 1 }
-    var suspected = A.first
-    A.append(A.max()! + 1)
+    guard !A.isEmpty else {
+        return 1
+    }
     
-        for value in 1..<A.count {
-            if A[value] - suspected! == 1 {
-                suspected = A[value]
-            } else {
-                suspected = (A[value] + suspected!) / 2
-                break
-            }
-        }
-
-    return suspected!
+    return Set<Int>(1...A.count + 2).subtracting(Set(A)).min()!
 }
 
-var numbers = [1, 2, 3, 4, 6]
+var numbers = [2, 3, 4, 5]
 solution(&numbers)
